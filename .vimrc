@@ -1,42 +1,42 @@
-set expandtab                                                                   
-set tabstop=4                                                                   
-set shiftwidth=4                                                                
-set softtabstop=4                                                               
+" Use Vim settings, rather than Vi settings
+set nocompatible
 
+" Make backspace behave in a sane manner.
+set backspace=indent,eol,start
 
-set autoindent                                                                  
-set smartindent                                                                 
-set backspace=indent,eol,start                                                  
-set ruler                                                                       
+" set tab to 2 spaces
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
+" Switch syntax highlighting on
+syntax on
 
-set nobackup                                                                    
-set nowritebackup                                                               
-set noswapfile                                                                  
-set encoding=utf-8                                                              
+" Enable file type detection and do language-dependent indenting.
+filetype plugin indent on
 
-set nocompatible                                                                
-filetype on                                                                     
+" Show line numbers
+set number
 
-let &colorcolumn=join(range(81,999),",")                                        
-let &colorcolumn="80,".join(range(400,999),",")                                 
+" Allow hidden buffers, don't limit to 1 file per window/split
+set hidden
 
-noremap ; :                                                                     
-noremap <Up> <Nop>                                                              
-noremap <Down> <Nop>                                                            
-noremap <Left> <Nop>                                                            
-noremap <Right> <Nop>                                                           
-imap <up> <Nop>                                                                 
-imap <down> <Nop>                                                               
-imap <left> <Nop>                                                               
-imap <right> <Nop>                                                              
+" update .vimrr
+" map rr :source ~/.vimrc
 
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-airline'
+Plug 'scrooloose/syntastic'
+Plug 'kien/ctrlp.vim'
+"Plug 'vim-javascript'
+"Plug 'valloric/youcompleteme'
+Plug 'flazz/vim-colorschemes'
+call plug#end()
 
-syntax enable                                                                   
+colorscheme gruvbox
+set background=dark
 
-set t_Co=256                                                                    
-set background=dark                                                             
-let g:solarized_termcolors=256                                                  
-colorscheme solarized                                                           
-"colorscheme monokai                                                            
-"colorscheme molokai
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen=0
